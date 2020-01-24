@@ -26,6 +26,7 @@ class Scans:
 
     def file_scan(self):
         print("Starting to scan file " + self.fileScan + '\n')
+        time.sleep(2)
         self.filePath = os.getcwd()
 
         with open (self.filePath + '/' + '{}'.format(self.fileScan),'r') as f:
@@ -71,14 +72,17 @@ class Scans:
         
 
     def single_scan(self):
-        req = requests.get("http://" + self.singleIP + ":" + str(self.port))
+
+        try:
+            req = requests.get("http://" + self.singleIP + ":" + str(self.port))
         
-        if req.status_code == 200:
-            try:
+            if req.status_code == 200:
+            
                 deviceReq = requests.post("http://" + self.singleIP + ":" + str(self.port) + '/JNAP/', headers = self.headers, data="{}",
                 timeout = int(self.timeout)).text
-            except requests.RequestException:
-                print("Request error at " + self.singleIP)
+        except requests.RequestException:
+            print("Request error at " + self.singleIP)
+            
 
             try:
                 deviceJson = json.loads(deviceReq)
@@ -91,6 +95,8 @@ class Scans:
 
             except Exception:
                 print("Json error at " + self.singleIP)
+            else:
+                print("Linksys Device Not Found")
     
     def save_hits(self):
         numberHits = str(len(hitList))

@@ -1,6 +1,7 @@
-import deviceleaks #file1
-import setArgs #file 2
+import deviceleaks 
+import setArgs
 import sys
+import time
 
 
 def main():
@@ -32,6 +33,7 @@ def main():
 
     elif getArgs.target:
         print("Starting scan on single target " + startScan.singleIP)
+        time.sleep(2)
         startScan.single_scan()
         if getArgs.save:
             startScan.save_hits()
