@@ -6,7 +6,7 @@ You have the option to either scan a single ip or a text file with multiple IPs.
 
 At the moment the script only checks if it finds a device and if its default password "admin" is in use. Other leak functions and arguements will be added later.(Device info such as fw date/version, connected devices, DDNS status, and more)
 
-
+I created this for educational purposes so please keep it that way when you use it, only test on your network or a network you have permission to test on.
 
 
 Usage:
