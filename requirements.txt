@@ -25,7 +25,7 @@ pycrypto==2.6.1
 pygobject==3.26.1
 python-apt===1.6.4-elementary6-ubuntu5.0.1
 pyxdg==0.25
-PyYAML==3.12
+PyYAML==5.1
 reportlab==3.4.0
 requests==2.22.0
 requests-unixsocket==0.1.5
